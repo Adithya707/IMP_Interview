@@ -1,0 +1,213 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+  cout << "Hello World!" << endl;
+  cout << "I am learning C++";
+  return 0;
+}
+using namespace std means that we can use names for objects and variables from the standard library.
+
+int myNum = 5;               // Integer (whole number without decimals)
+double myFloatNum = 5.99;    // Floating point number (with decimals)
+char myLetter = 'D';         // Character
+string myText = "Hello";     // String (text)
+bool myBoolean = true;       // Boolean (true or false)
+
+const int minutesPerHour = 60;
+
+int x; 
+cout << "Type a number: "; // Type a number and press enter
+cin >> x; // Get user input from the keyboard
+
+char a = 65, b = 66, c = 67;
+cout << a;
+cout << b;
+cout << c;  prints ABC
+
+// Include the string library
+#include <string>
+
+// Create a string variable
+string greeting = "Hello";
+
+// Output string value
+cout << greeting;
+
+string fullName = firstName + " " + lastName;  txt.length() + used for concatenation of strings
+
+#include <cmath>
+
+cout << sqrt(64);
+cout << round(2.6);
+cout << log(2);
+
+string cars[4] = {"Volvo", "BMW", "Ford", "Mazda"};
+
+cout << food;  // Outputs the value of food (Pizza)
+cout << &food; // Outputs the memory address of food (0x6dfed4)
+string* ptr = &food; 
+// Output the memory address of food with the pointer (0x6dfed4)
+cout << ptr << "\n";
+// Dereference: Output the value of food with the pointer (Pizza)
+cout << *ptr << "\n";
+
+Default parameters
+void myFunction(string country = "Norway") {
+  cout << country << "\n";
+}
+
+swapNums(firstNum, secondNum);  passing references
+void swapNums(int &x, int &y) {
+  int z = x;
+  x = y;
+  y = z;
+}
+
+ function overloading, multiple functions can have the same name with different parameters
+ 
+ 
+ class MyClass {       // The class
+  public:             // Access specifier
+    int myNum;        // Attribute (int variable)
+    string myString;  // Attribute (string variable)
+};
+
+int main() {
+  MyClass myObj;  // Create an object of MyClass
+
+  // Access attributes and set values
+  myObj.myNum = 15; 
+  myObj.myString = "Some text";
+
+  // Print attribute values
+  cout << myObj.myNum << "\n";
+  cout << myObj.myString;
+  return 0;
+}
+
+scope resolution :: operator if u want to define a function of a class outside
+
+class MyClass {        // The class
+  public:              // Access specifier
+    void myMethod();   // Method/function declaration
+};
+
+// Method/function definition outside the class
+void MyClass::myMethod() {
+  cout << "Hello World!";
+}
+
+
+class Car {        // The class
+  public:          // Access specifier
+    string brand;  // Attribute
+    string model;  // Attribute
+    int year;      // Attribute
+    Car(string x, string y, int z) { // Constructor with parameters
+      brand = x;
+      model = y;
+      year = z;
+    }
+};
+Car carObj1("BMW", "X5", 1999);
+
+public
+private
+protected - members cannot be accessed from outside the class, however, they can be accessed in inherited classes. You will learn more about Inheritance 
+
+Encapsulation
+#include <iostream>
+using namespace std;
+
+class Employee {
+  private:
+    // Private attribute
+    int salary;
+
+  public:
+    // Setter
+    void setSalary(int s) {
+      salary = s;
+    }
+    // Getter
+    int getSalary() {
+      return salary;
+    }
+};
+
+int main() {
+  Employee myObj;
+  myObj.setSalary(50000);
+  cout << myObj.getSalary();
+  return 0;
+}
+
+Inhertience
+// Base class
+class Vehicle {
+  public:
+    string brand = "Ford";
+    void honk() {
+      cout << "Tuut, tuut! \n" ;
+    }
+};
+
+// Derived class
+class Car: public Vehicle {
+  public:
+    string model = "Mustang";
+};
+
+int main() {
+  Car myCar;
+  myCar.honk();
+  cout << myCar.brand + " " + myCar.model;
+  return 0;
+}
+
+class MyChildClass: public MyClass, public MyOtherClass {
+};
+
+int main() {
+  MyChildClass myObj;
+  myObj.myFunction();
+  myObj.myOtherFunction();
+  return 0;
+}
+
+Virtual Function
+
+A C++ virtual function is a member function in the base class that you redefine in a derived class. It is declared using the virtual keyword.
+It is used to tell the compiler to perform dynamic linkage or late binding on the function.
+
+#include <iostream>  
+using namespace std;  
+class A  
+{  
+   int x=5;  
+    public:  
+    void display()  
+    {  
+        std::cout << "Value of x is : " << x<<std::endl;  
+    }  
+};  
+class B: public A  
+{  
+    int y = 10;  
+    public:  
+    void display()  
+    {  
+        std::cout << "Value of y is : " <<y<< std::endl;  
+    }  
+};  
+int main()  
+{  
+    A *a;  
+    B b;  
+    a = &b;  
+   a->display();  
+    return 0;  
+}  
+
+Earlybinding also called static linkage --> function overloading and Operator overloading  compile time polymorphism	

@@ -1,0 +1,103 @@
+Easier Multiplication 58 * 34   5*3 = 15   8*4 = 32  15 3 underlined 2  then 5*4 = 20 8*3 = 24 20+24=44
+1532
+ 44
+-----
+1972
+
+102 +2 wrt 100
+103 +3 wrt 100
+------
+10506  where 06 got by 2*3  and 100+(2+3)
+
+102 +2
+ 92 -8
+------
+09400
+  -16
+------
+09386
+
+Average given 81  93  99 x is 87  (-6 +6 +12 the x is -12 87-12 = 75 is x)
+
+20 years before avg age 25  find current avg  and if they have a child of 3
+current 45+45+3 = 93 avg = 31
+
+10 men avg 10 
+a teacher is added avg 13. Age of teacher? 10*10=100 11*13=143 143-100 = 43 ans
+
+avg 20 stud is 40 but two marks entered incorrectly 48->23  and 40->25 (88-48 = 40) (800-40)/20 = 38 ans
+
+(x+135)/20 = y+5  x/19 = y subtract and find x and y
+
+duplicate a^2/b^2
+subduplicate (a/b)^1/2
+Triplicate a^3/b^3
+subtriplicate (a^3/b^3)^1/2
+
+Total 672 ratio 5:3 (672/8) = 34 --> 5=420 3= 252
+su  water
+3     2
+      9litr
+--------
+2     3
+Amount of sugar and water
+
+clock  
+       minute hand
+       60min - 360 degree
+       1 min - 6 degree
+       
+       hour hand
+       12hrs - 360 degree
+       1hr - 30 degree
+       1min - 0.5 degree
+       
+6:10 --> (4*30)+(0.5*10) = 125 degree
+6:40 --> (2*30)-(0.5*40) = 40 degree
+6:55 --> (5*30) - (0.5*55) = 127.5 degree
+
+6:42 --> 6:40 +0:02 --> (2*30 + 2*6) - 19 = 51 degree
+6:22 --> 6:25 +0:03 --> (1*30 + 2*6) - 11 = 31 degree 
+
+Hand movement from 4 to 5 --> 1 division --> 30/(5.5) = 5.45
+
+
+Amount increases by 10% then decreases by 10% then change will 0.1  x^2/100
+len inc 20% bre dec 10% x+y+ xy/100 --> 20-10- (20*10)/100 = 8% increase
+
+A           B
+1/4 inc   1/(1+4) dec
+1/4 dec   1/(4-1) inc
+4/25 dec  4/(25-4) inc
+
+15 sp of cloth = 20 cp of cloth profit % = 5/15 = 33% profit
+
+lcm and hcf 40 and 55
+
+40   55  diff 15 if not diretly divi 5 and 3
+Take 5 HCF since divisible by both (40/5 = 8) 8*40 = 320 is LCM
+
+18 toys sold 16800 gained CP 3 toys
+21x = 16800  --> x = 800 
+
+SP 20 article = 15 article CP 
+5/20 = 25% loss
+
+Simple Intrest
+P = 15000  r = 24%  T = 5yrs  
+20% = 3000 4% = 600
+24% = 3600 for 5 yrs = 3600*5 = 18000
+Total amount = 33000
+
+Compund Intrest
+P = 20000  2yrs  r = 5%
+2yr 2:1 1000 50 --> 2*1000 + 50 = 2050 
+3yr 3:3:1
+4yr 4:6:4:1
+
+A can 20D  B can 30D
+A & B can do LCM of 20 and 30 is 60  3U of A 2U of B total of 5U thus 60/5 = 12 days
+
+45 * 16 = 45*6 + 75*x  45 men 16days  After 6 days 30 more men then how much more days required to complete work
+n*30 = n*10 + (n+50)*16
+

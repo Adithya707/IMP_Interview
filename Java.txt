@@ -1,0 +1,358 @@
+A.java --> java compiler converts to byte code(.class) --> JVM and JIT interpreter converts to platform specific exec code 
+
+OOP Concepts Abstraction, Encapsulation,  Inheritence,  Polymorphism
+
+public class Main {
+  public static void main(String[] args) {
+    System.out.println("Hello World");
+  }
+}
+
+// comment
+
+String, int, float, double, char, boolean
+
+wideniing(automatically)
+byte -> short - char - int - long - float -> double
+
+Narrowing(manually)
+byte <- short - char - int - long - float <- double
+
+txt.length()  txt.toUpperCase()
+System.out.println(firstName + " " + lastName);
+
+Math.max(5, 10); Math.sqrt(64); Math.abs(-4.7); Math.random();
+boolean isJavaFun = true;
+
+String[] cars = {"Volvo", "BMW", "Ford", "Mazda"};
+for (String i : cars) {
+  System.out.println(i);
+}
+
+int[][] myNumbers = { {1, 2, 3, 4}, {5, 6, 7} };
+
+public class Main {
+  static void myMethod() {
+    System.out.println("I just got executed!");
+  }
+
+  public static void main(String[] args) {
+    myMethod();
+  }
+}
+
+Method Overloading
+
+static int plusMethodInt(int x, int y) {
+  return x + y;
+}
+
+static double plusMethodDouble(double x, double y) {
+  return x + y;
+}
+
+public static void main(String[] args) {
+  int myNum1 = plusMethodInt(8, 5);
+  double myNum2 = plusMethodDouble(4.3, 6.26);
+  System.out.println("int: " + myNum1);
+  System.out.println("double: " + myNum2);
+}
+
+Procedural programming is about writing procedures or methods that perform operations on the data, while object-oriented programming is about creating objects that contain both data and methods.
+
+public class Main {
+  int x = 10;
+
+  public static void main(String[] args) {
+    Main myObj = new Main();
+    myObj.x = 25; // x is now 25
+    System.out.println(myObj.x);
+  }
+}
+
+In the example above, we created a static method, which means that it can be accessed without creating an object of the class, unlike public, which can only be accessed by objects
+No static
+public class Main {
+ 
+  // Create a fullThrottle() method
+  public void fullThrottle() {
+    System.out.println("The car is going as fast as it can!");
+  }
+
+  // Create a speed() method and add a parameter
+  public void speed(int maxSpeed) {
+    System.out.println("Max speed is: " + maxSpeed);
+  }
+
+  // Inside main, call the methods on the myCar object
+  public static void main(String[] args) {
+    Main myCar = new Main();   // Create a myCar object
+    myCar.fullThrottle();      // Call the fullThrottle() method
+    myCar.speed(200);          // Call the speed() method
+  }
+}
+
+Constructors
+public class Main {
+  int x;
+
+  public Main(int y) {
+    x = y;
+  }
+
+  public static void main(String[] args) {
+    Main myObj = new Main(5);
+    System.out.println(myObj.x);
+  }
+}
+
+// Outputs 5
+
+access modifiers
+public - within any class and any package
+default - accesable any class within same package
+private - only accessable to that particular class
+protected - only accesaable to that particular class and it's subclass
+
+non access modifers 
+final - class cannot be inherited by another class
+abstract - objects cannot be created for the class
+transient - Attributes and methods are skipped when serializing the object containing them
+synchronized - Methods can only be accessed by one thread at a time
+volatile - The value of an attribute is not cached thread-locally, and is always read from the "main memory"
+
+inheritence and useage of abstract class
+
+abstract class Main {
+  public String fname = "John";
+  public int age = 24;
+  public abstract void study(); // abstract method
+}
+
+// Subclass (inherit from Main)
+class Student extends Main {
+  public int graduationYear = 2018;
+  public void study() { // the body of the abstract method is provided here
+    System.out.println("Studying all day long");
+  }
+}
+// End code from filename: Main.java
+
+// Code from filename: Second.java
+class Second {
+  public static void main(String[] args) {
+    // create an object of the Student class (which inherits attributes and methods from Main)
+    Student myObj = new Student();
+
+    System.out.println("Name: " + myObj.fname);
+    System.out.println("Age: " + myObj.age);
+    System.out.println("Graduation Year: " + myObj.graduationYear);
+    myObj.study(); // call abstract method
+  }
+}
+
+Encapsulation
+
+declare class variables/attributes as private
+provide public get and set methods to access and update the value of a private variable
+
+public class Person {
+  private String name; // private = restricted access
+
+  // Getter
+  public String getName() {
+    return name;
+  }
+
+  // Setter
+  public void setName(String newName) {
+    this.name = newName;
+  }
+  public static void main(String[] args) {
+    Person myObj = new Person();
+    myObj.setName("John"); // Set the value of the name variable to "John"
+    System.out.println(myObj.getName());
+  }
+}
+
+import java.util.Scanner;
+Scanner sc = new Scanner(System.in);
+String a = sc.nextLine();
+
+Use of super function and super keyword
+class A{
+   int i;
+}
+class B extends A{
+   int i;
+   B(int a, int b){
+      super.i = a;
+      i = b;
+   }
+}
+
+
+class Bowweight{
+   int weight;
+   Boxweight(int l,int b,int h, int w){
+      super(l,b,h);
+      weight = w;
+   }
+}
+
+Polymorphism
+class Animal {
+  public void animalSound() {
+    System.out.println("The animal makes a sound");
+  }
+}
+
+class Pig extends Animal {
+  public void animalSound() {
+    System.out.println("The pig says: wee wee");
+  }
+}
+
+class Dog extends Animal {
+  public void animalSound() {
+    System.out.println("The dog says: bow wow");
+  }
+}
+
+class Main {
+  public static void main(String[] args) {
+    Animal myAnimal = new Animal();  // Create a Animal object
+    Animal myPig = new Pig();  // Create a Pig object
+    Animal myDog = new Dog();  // Create a Dog object
+    myAnimal.animalSound();
+    myPig.animalSound();
+    myDog.animalSound();
+  }
+}
+
+Inner class is a class within a class
+class OuterClass {
+  int x = 10;
+
+  class InnerClass {
+    int y = 5;
+  }
+}
+
+public class Main {
+  public static void main(String[] args) {
+    OuterClass myOuter = new OuterClass();
+    OuterClass.InnerClass myInner = myOuter.new InnerClass();
+    System.out.println(myInner.y + myOuter.x);
+  }
+}
+
+An interface is a completely "abstract class" that is used to group related methods with empty bodies
+On implementation of an interface, you must override all of its methods
+Interface attributes are by default public, static and final
+An interface cannot contain a constructor
+
+// Interface
+interface Animal {
+  public void animalSound(); // interface method (does not have a body)
+  public void sleep(); // interface method (does not have a body)
+}
+
+// Pig "implements" the Animal interface
+class Pig implements Animal {
+  public void animalSound() {
+    // The body of animalSound() is provided here
+    System.out.println("The pig says: wee wee");
+  }
+  public void sleep() {
+    // The body of sleep() is provided here
+    System.out.println("Zzz");
+  }
+}
+
+class Main {
+  public static void main(String[] args) {
+    Pig myPig = new Pig();  // Create a Pig object
+    myPig.animalSound();
+    myPig.sleep();
+  }
+}
+
+enum Level {
+  LOW,
+  MEDIUM,
+  HIGH
+}
+Level myVar = Level.MEDIUM;
+for (Level myVar : Level.values()) {
+  System.out.println(myVar);
+}
+
+
+ArrayList
+
+import java.util.ArrayList;
+
+public class Main {
+  public static void main(String[] args) {
+    ArrayList<String> cars = new ArrayList<String>();
+    cars.add("Volvo");
+    cars.add("BMW");
+    cars.add("Ford");
+    cars.add("Mazda");
+    System.out.println(cars);
+  }
+}
+
+cars.get(0); cars.set(0, "Opel");  cars.remove(0); cars.size();
+
+ for (int i = 0; i < cars.size(); i++) {
+      System.out.println(cars.get(i));
+    }
+    
+  for (String i : cars) {
+      System.out.println(i);
+    }
+    
+LinkedList child of ArrayList
+addFirst(), addLast() getFirst(), removeLast()
+
+
+iterator iterface has 3 function next() ,hasnext(), remove()
+Iterator<String> it = cars.iterator();
+while(it.hasNext()) {
+  System.out.println(it.next());
+}
+
+comparator boolean equals(object obj)  int compare(T obj1, T Obj2)
+
+Wrapper classes provide a way to use primitive data types (int, boolean, etc..) as objects.
+
+Objects to primitive datatype Integer myInt = 5;
+                              System.out.println(myInt.intValue());
+  
+Threads                            
+public class Main extends Thread {
+  public static void main(String[] args) {
+    Main thread = new Main();
+    thread.start();
+    System.out.println("This code is outside of the thread");
+  }
+  public void run() {
+    System.out.println("This code is running in a thread");
+  }
+}
+
+public class Main implements Runnable {
+  public static void main(String[] args) {
+    Main obj = new Main();
+    Thread thread = new Thread(obj);
+    thread.start();
+    System.out.println("This code is outside of the thread");
+  }
+  public void run() {
+    System.out.println("This code is running in a thread");
+  }
+}
+
+getName(),getPriority(),isAlive(),start(),run(),sleep()

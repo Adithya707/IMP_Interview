@@ -1,0 +1,206 @@
+select * from Customers;
+
+SELECT DISTINCT column1, column2, ...
+FROM table_name;
+
+SELECT column1, column2, ...
+FROM table_name
+WHERE condition;
+
+SELECT * FROM Customers
+WHERE City LIKE 's%'; or 's_' or 's?'
+
+SELECT * FROM Customers
+WHERE City IN ('Paris','London');  ALL, ANY
+
+SELECT ProductName
+FROM Products
+WHERE ProductID = ANY (SELECT ProductID FROM OrderDetails WHERE Quantity > 99);
+
+SELECT * FROM Products
+WHERE Price <> 18; not equal
+
+SELECT * FROM Products
+WHERE Price BETWEEN 50 AND 60;
+
+SELECT * FROM Products
+WHERE Price NOT BETWEEN 10 AND 20;
+
+SELECT * FROM Customers
+WHERE Country='Germany' OR Country='Spain';
+
+SELECT * FROM Customers
+WHERE NOT Country='Germany';
+
+INSERT INTO table_name (column1, column2, column3, ...)
+VALUES (value1, value2, value3, ...);
+
+SELECT CustomerName, ContactName, Address
+FROM Customers
+WHERE Address IS NULL; IS NOT NULL
+
+UPDATE Customers
+SET ContactName = 'Alfred Schmidt', City= 'Frankfurt'
+WHERE CustomerID = 1;
+
+DELETE FROM Customers WHERE CustomerName='Alfreds Futterkiste';
+
+SELECT * FROM Customers
+LIMIT 3;
+
+SELECT TOP 3 * FROM Customers
+WHERE Country='Germany';
+
+SELECT MAX(Price) AS LargestPrice  count,avg,min,sum
+FROM Products;
+
+The two following SQL statements select all customers with a City NOT starting with "b", "s", or "p":
+SELECT * FROM Customers
+WHERE City NOT LIKE '[bsp]%';
+
+or
+
+SELECT * FROM Customers
+WHERE City LIKE '[!bsp]%';
+
+SELECT * FROM Customers
+ORDER BY Country ASC, CustomerName DESC;
+
+SELECT CustomerName AS Customer, ContactName AS [Contact Person]
+FROM Customers;
+
+SELECT column_name(s)
+FROM table_name AS alias_name;
+
+SELECT Orders.OrderID, Customers.CustomerName, Orders.OrderDate
+FROM Orders
+INNER JOIN Customers ON Orders.CustomerID=Customers.CustomerID;
+
+LEFT OUTER JOIN ,  RIGHT OUTER JOIN  , FULL OUTER JOIN
+EQUVI JOIN normal by use of where condition
+
+SELECT column_name(s) FROM table1
+UNION
+SELECT column_name(s) FROM table2;  only selcts distinct elements if u want all use UNION ALL , intersect to get common values of tabels
+
+The GROUP BY statement is often used with aggregate functions (COUNT(), MAX(), MIN(), SUM(), AVG()) to group the result-set by one or more columns
+
+SELECT COUNT(CustomerID) as Num_Cust, Country
+FROM Customers
+GROUP BY Country;
+
+SELECT COUNT(CustomerID), Country
+FROM Customers
+GROUP BY Country
+ORDER BY COUNT(CustomerID) DESC;
+
+SELECT COUNT(CustomerID), Country
+FROM Customers
+GROUP BY Country
+HAVING COUNT(CustomerID) > 5
+ORDER BY COUNT(CustomerID) DESC;
+
+SELECT SupplierName
+FROM Suppliers
+WHERE EXISTS (SELECT ProductName FROM Products WHERE Products.SupplierID = Suppliers.supplierID AND Price < 20);
+
+SELECT OrderID, Quantity,
+CASE
+    WHEN Quantity > 30 THEN 'The quantity is greater than 30'
+    WHEN Quantity = 30 THEN 'The quantity is 30'
+    ELSE 'The quantity is under 30'
+END AS QuantityText
+FROM OrderDetails;
+
+--select for comments --
+
+CREATE DATABASE testDB;
+
+DROP DATABASE databasename;
+
+CREATE TABLE Persons (
+    PersonID int,
+    LastName varchar(255),
+    FirstName varchar(255),
+    Address varchar(255),
+    City varchar(255)
+);
+
+DROP TABLE table_name;
+
+TRUNCATE TABLE table_name; delete all the table values
+
+Constains not null , primary key, unique, foreign key, check, default, create index
+
+CREATE TABLE Persons (
+    ID int NOT NULL,
+    LastName varchar(255) NOT NULL,
+    FirstName varchar(255) NOT NULL,
+    Age int
+);
+
+CREATE TABLE Persons (
+    ID int NOT NULL,
+    LastName varchar(255) NOT NULL,
+    FirstName varchar(255),
+    Age int,
+    CONSTRAINT UC_Person UNIQUE (ID,LastName)
+);
+
+CREATE TABLE Persons (
+    ID int NOT NULL,
+    LastName varchar(255) NOT NULL,
+    FirstName varchar(255),
+    Age int,
+    CONSTRAINT PK_Person PRIMARY KEY (ID,LastName)
+);
+
+CREATE TABLE Orders (
+    OrderID int NOT NULL,
+    OrderNumber int NOT NULL,
+    PersonID int,
+    PRIMARY KEY (OrderID),
+    CONSTRAINT FK_PersonOrder FOREIGN KEY (PersonID)
+    REFERENCES Persons(PersonID)
+);
+
+CREATE TABLE Persons (
+    ID int NOT NULL,
+    LastName varchar(255) NOT NULL,
+    FirstName varchar(255),
+    Age int CHECK (Age>=18)
+);
+
+CREATE TABLE Persons (
+    ID int NOT NULL,
+    LastName varchar(255) NOT NULL,
+    FirstName varchar(255),
+    Age int,
+    City varchar(255) DEFAULT 'Sandnes'
+);
+
+CREATE TABLE Persons (
+    Personid int NOT NULL AUTO_INCREMENT,
+    LastName varchar(255) NOT NULL,
+    FirstName varchar(255),
+    Age int,
+    PRIMARY KEY (Personid)
+);
+
+ALTER TABLE Persons
+DROP CONSTRAINT UC_Person;
+
+ALTER TABLE Persons
+MODIFY Age int NOT NULL;
+
+ALTER TABLE Customers
+ADD Email varchar(255);
+
+ALTER TABLE Customers
+DROP COLUMN Email;
+
+ALTER TABLE table_name
+MODIFY column_name datatype;
+
+BACKUP DATABASE testDB
+TO DISK = 'D:\backups\testDB.bak';
