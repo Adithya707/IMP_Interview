@@ -1,0 +1,29 @@
+#include <stdio.h>
+
+int main() {
+  printf("Hello World!");
+  return 0;
+}
+
+char greetings[] = "Hello World!";
+
+int myAge = 43;
+printf("%p", &myAge); // Outputs 0x7ffe5367e044
+
+int* ptr = &myAge;
+printf("%d\n", *ptr); //Defrenecing
+
+A storage class defines the scope (visibility) and life-time of variables and/or functions within a C Program.
+They precede the type that they modify. We have four different storage classes in a C program −
+
+auto //default
+register //stored in reg instead of ram
+static
+extern - The extern storage class is used to give a reference of a global variable that is visible to ALL the program files. When you use 'extern', the variable cannot be initialized
+
+Static
+The static storage class instructs the compiler to keep a local variable in existence during the life-time of the program instead of creating and destroying it each time it comes into and goes out of scope. 
+Therefore, making local variables static allows them to maintain their values between function calls.
+
+A union is a special data type available in C that allows to store different data types in the same memory location. You can define a union with many members, but only one member can contain a value at any given time. 
+Unions provide an efficient way of using the same memory location for multiple-purpose.
